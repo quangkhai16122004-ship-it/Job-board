@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: Job-Board-API
+
+  # Database Configuration
+  datasource:
+    url: jdbc:mysql://localhost:3306/job_board_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: your_password_here
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA/Hibernate Configuration
+  jpa:
+    hibernate:
+      ddl-auto: update  # Options: create, create-drop, validate, update, none
+    show-sql: true      # Show SQL queries in console (for learning)
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true  # Format SQL for better readability
+
+# Server Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /api  # Base path: http://localhost:8080/api
+
+# Logging Configuration (helpful for debugging)
+logging:
+  level:
+    root: INFO
+    com.jobboard: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
